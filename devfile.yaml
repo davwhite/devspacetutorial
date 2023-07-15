@@ -64,6 +64,6 @@ components:
           value: minioadmin
         - name: MINIO_CLIENT_URL
           value: util02.davenet.local
-      image: registry.redhat.io/devspaces/udi-rhel8@sha256:a5a67003870daf10f941b0279a065358dd1ace6d40826462b91bae9868216eff
+      image: image-registry.openshift-image-registry.svc:5000/davwhite-devspaces/devspace-opencv:latest
       sourceMapping: /projects
     name: universal-developer-image
