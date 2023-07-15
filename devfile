@@ -1,0 +1,53 @@
+schemaVersion: 2.1.0
+metadata:
+  attributes:
+    metadata-name-field: generateName
+    metadata-name-original-value: flyingthings
+  name: flyingthings
+  namespace: davwhite-devspaces
+attributes:
+  che-theia.eclipse.org/sidecar-policy: mergeImage
+  controller.devfile.io/devworkspace-config:
+    name: devworkspace-config
+    namespace: djw
+  controller.devfile.io/scc: container-build
+  controller.devfile.io/storage-type: per-user
+  dw.metadata.annotations:
+    che.eclipse.org/devfile-source: |
+      url:
+        location: https://github.com/redhat-na-ssa/flyingthings.git
+projects:
+  - git:
+      remotes:
+        origin: https://github.com/redhat-na-ssa/flyingthings.git
+    name: flyingthings
+components:
+  - attributes:
+      controller.devfile.io/merge-contribution: true
+    container:
+      env:
+        - name: CHE_DASHBOARD_URL
+          value: https://devspaces.apps.ocp4.davenet.local
+        - name: CHE_PLUGIN_REGISTRY_URL
+          value: https://devspaces.apps.ocp4.davenet.local/plugin-registry/v3
+        - name: CHE_PLUGIN_REGISTRY_INTERNAL_URL
+          value: http://plugin-registry.djw.svc:8080/v3
+        - name: CLUSTER_CONSOLE_URL
+          value: https://console-openshift-console.apps.ocp4.davenet.local
+        - name: CLUSTER_CONSOLE_TITLE
+          value: OpenShift console
+        - name: OPENVSX_REGISTRY_URL
+          value: ''
+        - name: MINIO_ENDPOINT
+          value: https://minio-flyingthings-standalone.apps.ocp4.davenet.local
+        - name: MINIO_BUCKET
+          value: flyingthings
+        - name: MINIO_ACCESSKEY
+          value: minioadmin
+        - name: MINIO_SECRETKEY
+          value: minioadmin
+        - name: MINIO_CLIENT_URL
+          value: util02.davenet.local
+      image: registry.redhat.io/devspaces/udi-rhel8@sha256:a5a67003870daf10f941b0279a065358dd1ace6d40826462b91bae9868216eff
+      sourceMapping: /projects
+    name: universal-developer-image
