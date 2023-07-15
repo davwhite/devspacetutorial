@@ -55,7 +55,7 @@ components:
         - name: DATASET_ZIP
           value: flyingthings-yolo.zip
         - name: SIMPLEVIS_DATA
-          value: /opt/app-root/src/simplevis-data
+          value: /projects
         - name: MINIO_BUCKET
           value: flyingthings
         - name: MINIO_ACCESSKEY
