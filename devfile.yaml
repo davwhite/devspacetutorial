@@ -40,7 +40,7 @@ components:
     name: python
   - name: yolo
     attributes:
-      controller.devfile.io/merge-contribution: true
+      controller.devfile.io/merge-contribution: false
     container:
       image: registry.access.redhat.com/ubi9/python-39
       memoryLimit: 2G
