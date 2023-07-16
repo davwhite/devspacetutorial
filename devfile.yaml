@@ -64,9 +64,6 @@ components:
           value: minioadmin
         - name: MINIO_CLIENT_URL
           value: util02.davenet.local
-      image: image-registry.openshift-image-registry.svc:5000/davwhite-devspaces/devspace-opencv:latest
-      resources:
-        limits:
-          nvidia.com/gpu: 1
+      image: image-registry.openshift-image-registry.svc:5000/devspaces/devspace-opencv:latest
       sourceMapping: /projects
     name: universal-developer-image
