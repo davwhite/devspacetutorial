@@ -64,6 +64,6 @@ components:
           value: minioadmin
         - name: MINIO_CLIENT_URL
           value: util02.davenet.local
-      image: djw/devspace-opencv:latest
+      image: nexus.davenet.local:8082/repository/odh/yolo:latest
       sourceMapping: /projects
     name: universal-developer-image
