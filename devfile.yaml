@@ -64,6 +64,6 @@ components:
           value: minioadmin
         - name: MINIO_CLIENT_URL
           value: util02.davenet.local
-      image: image-registry.openshift-image-registry.svc:5000/davwhite-devspaces/devspace-opencv:latest
+      image: djw/devspace-opencv:latest
       sourceMapping: /projects
     name: universal-developer-image
