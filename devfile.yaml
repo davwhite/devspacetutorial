@@ -39,7 +39,7 @@ components:
         - name: OPENVSX_REGISTRY_URL
           value: ''
       image: registry.redhat.io/devspaces/udi-rhel8@sha256:a5a67003870daf10f941b0279a065358dd1ace6d40826462b91bae9868216eff
-      # sourceMapping: /projects
+      sourceMapping: /projects
     name: universal-developer-image
   - attributes:
       controller.devfile.io/merge-contribution: false
