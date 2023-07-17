@@ -38,32 +38,6 @@ components:
           value: OpenShift console
         - name: OPENVSX_REGISTRY_URL
           value: ''
-        - name: BATCH_SIZE
-          value: "-1"
-        - name: NUM_EPOCHS
-          value: "10"
-        - name: IMG_RESIZE
-          value: "N"
-        - name: IMG_WIDTH
-          value: "200"
-        - name: WEIGHTS
-          value: flyingthings.pt
-        - name: BASE_MODEL
-          value: yolov8n.pt
-        - name: MINIO_ENDPOINT
-          value: https://minio-flyingthings-standalone.apps.ocp4.davenet.local
-        - name: DATASET_ZIP
-          value: flyingthings-yolo.zip
-        - name: SIMPLEVIS_DATA
-          value: /projects
-        - name: MINIO_BUCKET
-          value: flyingthings
-        - name: MINIO_ACCESSKEY
-          value: minioadmin
-        - name: MINIO_SECRETKEY
-          value: minioadmin
-        - name: MINIO_CLIENT_URL
-          value: util02.davenet.local
       image: registry.redhat.io/devspaces/udi-rhel8@sha256:a5a67003870daf10f941b0279a065358dd1ace6d40826462b91bae9868216eff
       sourceMapping: /projects
     name: universal-developer-image
@@ -79,25 +53,31 @@ components:
           value: "N"
         - name: IMG_WIDTH
           value: "200"
-        - name: WEIGHTS
-          value: flyingthings.pt
         - name: BASE_MODEL
           value: yolov8n.pt
-        - name: MINIO_ENDPOINT
-          value: https://minio-flyingthings-standalone.apps.ocp4.davenet.local
         - name: DATASET_ZIP
           value: flyingthings-yolo.zip
+        - name: MINIO_CLIENT_URL
+          value: util02.davenet.local
+        - name: WEIGHTS
+          value: flyingthings.pt
+        - name: BUILD_VER
+          value: "0.0"
+        - name: MODEL_CLASSES
+          value: flyingthings.yaml
         - name: SIMPLEVIS_DATA
-          value: /projects
+          value: /opt/app-root/src/simplevis-data
+        - name: BASEDIR
+          value: /opt/app-root/src
+        - name: MINIO_ENDPOINT
+          value: http://minio:9000
         - name: MINIO_BUCKET
           value: flyingthings
         - name: MINIO_ACCESSKEY
           value: minioadmin
         - name: MINIO_SECRETKEY
           value: minioadmin
-        - name: MINIO_CLIENT_URL
-          value: util02.davenet.local
-      image: image-registry.openshift-image-registry.svc:5000/modemo/base-ubi9:latest
+      image: image-registry.openshift-image-registry.svc:5000/modemo/devspace-yolo:latest
       command: ["tail"]
       args: ["-f", "/dev/null"]
       sourceMapping: /projects
