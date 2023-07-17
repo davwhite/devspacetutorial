@@ -98,5 +98,7 @@ components:
         - name: MINIO_CLIENT_URL
           value: util02.davenet.local
       image: image-registry.openshift-image-registry.svc:5000/modemo/base-ubi9:latest
+      command: ["tail"]
+      args: ["-f", "/dev/null"]
       sourceMapping: /projects
     name: my-custom
