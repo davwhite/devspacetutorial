@@ -81,4 +81,10 @@ components:
       command: ["tail"]
       args: ["-f", "/dev/null"]
       sourceMapping: /projects
+      volumeMounts:
+        - mountPath: /opt/app-root/src/simplevis-data
+          name: simplevis-data
+    volumes:
+      - name: simplevis-data
+        emptyDir: {}
     name: my-custom
