@@ -30,7 +30,7 @@ components:
           value: OpenShift console
         - name: OPENVSX_REGISTRY_URL
           value: ''
-      image: image-registry.openshift-image-registry.svc:5000/davwhite-devspaces/devspace-yolo:latest
+      image: image-registry.openshift-image-registry.svc:5000/devspaces/devspace-opencv:latest
       memoryLimit: 2G
       mountSources: true
       sourceMapping: /projects
