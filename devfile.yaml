@@ -2,8 +2,8 @@ schemaVersion: 2.1.0
 metadata:
   attributes:
     metadata-name-field: generateName
-    metadata-name-original-value: flyingthings
-  name: flyingthings
+    metadata-name-original-value: cvdemo
+  name: cvdemo
   namespace: davwhite-devspaces
 attributes:
   che-theia.eclipse.org/sidecar-policy: mergeImage
