@@ -2,8 +2,8 @@ schemaVersion: 2.1.0
 metadata:
   attributes:
     metadata-name-field: generateName
-    metadata-name-original-value: flyingthings
-  name: flyingthings
+    metadata-name-original-value: cvdemo
+  name: cvdemo
   namespace: davwhite-devspaces
 attributes:
   che-theia.eclipse.org/sidecar-policy: mergeImage
@@ -38,7 +38,8 @@ components:
           value: OpenShift console
         - name: OPENVSX_REGISTRY_URL
           value: ''
-      image: registry.redhat.io/devspaces/udi-rhel8@sha256:a5a67003870daf10f941b0279a065358dd1ace6d40826462b91bae9868216eff
+      # image: registry.redhat.io/devspaces/udi-rhel8@sha256:a5a67003870daf10f941b0279a065358dd1ace6d40826462b91bae9868216eff
+      image: image-registry.openshift-image-registry.svc:5000/davwhite-devspaces/devspace-yolo
       sourceMapping: /projects
     name: universal-developer-image
   - attributes:
