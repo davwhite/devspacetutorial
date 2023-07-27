@@ -48,8 +48,8 @@ components:
     name: universal-developer-image
   - attributes:
       controller.devfile.io/merge-contribution: false
-      deployment/cpuLimit: "200m"
-      deployment/cpuRequest: 100m
+      deployment/cpuLimit: "1000m"
+      deployment/cpuRequest: 900m
       deployment/memoryLimit: 32Gi
       deployment/memoryRequest: 38Gi
     container:
