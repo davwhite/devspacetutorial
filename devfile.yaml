@@ -43,6 +43,8 @@ components:
     name: universal-developer-image
   - attributes:
       controller.devfile.io/merge-contribution: false
+      deployment/memoryLimit: 2Gi
+      deployment/memoryRequest: 1Gi
     container:
       env:
         - name: BATCH_SIZE
@@ -80,5 +82,10 @@ components:
       image: nexus.davenet.local:8082/repository/odh/yolo:latest
       command: ["tail"]
       args: ["-f", "/dev/null"]
+      resources:
+        requests:
+          memory: "256Mi"  # Requested memory (minimum required)
+        limits:
+          memory: "512Mi"  # Maximum allowed memory
       sourceMapping: /projects
     name: my-custom
