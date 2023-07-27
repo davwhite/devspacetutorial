@@ -1,17 +1,26 @@
-schemaVersion: 2.2.0
+schemaVersion: 2.1.0
 metadata:
-  name: python-hello-world
+  attributes:
+    metadata-name-field: generateName
+    metadata-name-original-value: flyingthings
+  name: flyingthings
   namespace: davwhite-devspaces
 attributes:
+  che-theia.eclipse.org/sidecar-policy: mergeImage
   controller.devfile.io/devworkspace-config:
     name: devworkspace-config
     namespace: devspaces
   controller.devfile.io/scc: container-build
   controller.devfile.io/storage-type: per-user
+  dw.metadata.annotations:
+    che.eclipse.org/devfile-source: |
+      url:
+        location: https://github.com/redhat-na-ssa/flyingthings.git
 projects:
-  - name: python-hello-worldx
-    zip:
-      location: http://devfile-registry.devspaces.svc:8080/resources/v2/python-hello-world.zip
+  - git:
+      remotes:
+        origin: https://github.com/redhat-na-ssa/flyingthings.git
+    name: flyingthings
 components:
   - attributes:
       controller.devfile.io/merge-contribution: true
@@ -29,23 +38,47 @@ components:
           value: OpenShift console
         - name: OPENVSX_REGISTRY_URL
           value: ''
-      image: image-registry.openshift-image-registry.svc:5000/davwhite-devspaces/devspaces-yolo:latest
-      memoryLimit: 2G
-      mountSources: true
+      image: registry.redhat.io/devspaces/udi-rhel8@sha256:a5a67003870daf10f941b0279a065358dd1ace6d40826462b91bae9868216eff
       sourceMapping: /projects
-      volumeMounts:
-        - name: venv
-          path: /home/user/.venv
-    name: python
-  - name: venv
-    volume:
-      size: 1G
-commands:
-  - exec:
-      commandLine: python -m venv .venv && . .venv/bin/activate && python hello-world.py
-      component: python
-      group:
-        kind: run
-      label: Run the application
-      workingDir: ${PROJECTS_ROOT}/python-hello-world
-    id: run
+    name: universal-developer-image
+  - attributes:
+      controller.devfile.io/merge-contribution: false
+    container:
+      env:
+        - name: BATCH_SIZE
+          value: "-1"
+        - name: NUM_EPOCHS
+          value: "10"
+        - name: IMG_RESIZE
+          value: "N"
+        - name: IMG_WIDTH
+          value: "200"
+        - name: BASE_MODEL
+          value: yolov8n.pt
+        - name: DATASET_ZIP
+          value: flyingthings-yolo.zip
+        - name: MINIO_CLIENT_URL
+          value: util02.davenet.local
+        - name: WEIGHTS
+          value: flyingthings.pt
+        - name: BUILD_VER
+          value: "0.0"
+        - name: MODEL_CLASSES
+          value: flyingthings.yaml
+        - name: SIMPLEVIS_DATA
+          value: /opt/app-root/src/simplevis-data
+        - name: BASEDIR
+          value: /opt/app-root/src
+        - name: MINIO_ENDPOINT
+          value: http://minio:9000
+        - name: MINIO_BUCKET
+          value: flyingthings
+        - name: MINIO_ACCESSKEY
+          value: minioadmin
+        - name: MINIO_SECRETKEY
+          value: minioadmin
+      image: nexus.davenet.local:8081/repository/odh/yolo:latest:latest
+      command: ["tail"]
+      args: ["-f", "/dev/null"]
+      sourceMapping: /projects
+    name: my-custom
