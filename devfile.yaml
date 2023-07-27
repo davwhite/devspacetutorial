@@ -86,7 +86,7 @@ components:
           value: minioadmin
         - name: MINIO_SECRETKEY
           value: minioadmin
-      image: nexus.davenet.local:8082/repository/odh/yolo:latest
+      image: image-registry.openshift-image-registry.svc:5000/davwhite-devspaces/devspaces-yolo:latest
       command: ["tail"]
       args: ["-f", "/dev/null"]
       sourceMapping: /projects
