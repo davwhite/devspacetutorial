@@ -77,7 +77,7 @@ components:
           value: minioadmin
         - name: MINIO_SECRETKEY
           value: minioadmin
-      image: nexus.davenet.local:8081/repository/odh/yolo:latest:latest
+      image: nexus.davenet.local:8081/repository/odh/yolo:latest
       command: ["tail"]
       args: ["-f", "/dev/null"]
       sourceMapping: /projects
