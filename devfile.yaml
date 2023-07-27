@@ -26,6 +26,9 @@ components:
       controller.devfile.io/merge-contribution: true
       deployment/memoryLimit: 32Gi
       deployment/memoryRequest: 38Gi
+      deployment/cpuLimit: "500m"
+      deployment/cpuRequest: 300m
+      deployment/nvidia.com/gpu: "1"
     container:
       env:
         - name: CHE_DASHBOARD_URL
