@@ -26,8 +26,8 @@ components:
       controller.devfile.io/merge-contribution: true
       deployment/memoryLimit: 32Gi
       deployment/memoryRequest: 38Gi
-      deployment/cpuLimit: '8'
-      deployment/cpuRequest: '4'
+      deployment/cpuLimit: '10'
+      deployment/cpuRequest: '10'
       deployment/nvidia.com/gpu: "1"
     container:
       env:
