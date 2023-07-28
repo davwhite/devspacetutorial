@@ -49,7 +49,7 @@ components:
   - attributes:
       controller.devfile.io/merge-contribution: false
       deployment/cpuLimit: "1000m"
-      deployment/cpuRequest: 900m
+      deployment/cpuRequest: "900m"
       deployment/memoryLimit: 32Gi
       deployment/memoryRequest: 38Gi
     container:
@@ -86,7 +86,7 @@ components:
           value: minioadmin
         - name: MINIO_SECRETKEY
           value: minioadmin
-      image: image-registry.openshift-image-registry.svc:5000/davwhite-devspaces/devspaces-yolo:latest
+      image: image-registry.openshift-image-registry.svc:5000/davwhite-devspaces/devspaces-tkn:latest
       command: ["tail"]
       args: ["-f", "/dev/null"]
       sourceMapping: /projects
