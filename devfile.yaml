@@ -50,8 +50,8 @@ components:
       controller.devfile.io/merge-contribution: false
       deployment/cpuLimit: "1000m"
       deployment/cpuRequest: "900m"
-      deployment/memoryLimit: 32Gi
-      deployment/memoryRequest: 38Gi
+      deployment/memoryLimit: 38Gi
+      deployment/memoryRequest: 32Gi
     container:
       env:
         - name: BATCH_SIZE
