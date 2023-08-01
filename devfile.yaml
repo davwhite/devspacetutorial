@@ -48,10 +48,10 @@ components:
     name: universal-developer-image
   - attributes:
       controller.devfile.io/merge-contribution: false
-      deployment/cpuLimit: "3"
-      deployment/cpuRequest: "1"
-      deployment/memoryLimit: 6Gi
-      deployment/memoryRequest: 2Gi
+      deployment/cpuLimit: "8"
+      deployment/cpuRequest: "4"
+      deployment/memoryLimit: 8Gi
+      deployment/memoryRequest: 4Gi
     container:
       env:
         - name: BATCH_SIZE
