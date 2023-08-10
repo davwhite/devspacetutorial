@@ -30,6 +30,18 @@ components:
       deployment/nvidia.com/gpu: "1"
     container:
       env:
+        - name: CHE_DASHBOARD_URL
+          value: https://devspaces.apps.ocp4.davenet.local
+        - name: CHE_PLUGIN_REGISTRY_URL
+          value: https://devspaces.apps.ocp4.davenet.local/plugin-registry/v3
+        - name: CHE_PLUGIN_REGISTRY_INTERNAL_URL
+          value: http://plugin-registry.devspaces.svc:8080/v3
+        - name: CLUSTER_CONSOLE_URL
+          value: https://console-openshift-console.apps.ocp4.davenet.local
+        - name: CLUSTER_CONSOLE_TITLE
+          value: OpenShift console
+        - name: OPENVSX_REGISTRY_URL
+          value: ''
         - name: BATCH_SIZE
           value: "-1"
         - name: NUM_EPOCHS
@@ -67,27 +79,27 @@ components:
       args: ["-f", "/dev/null"]
       sourceMapping: /projects
     name: my-custom
-  - attributes:
-      controller.devfile.io/merge-contribution: true
-      deployment/memoryLimit: 32Gi
-      deployment/memoryRequest: 38Gi
-      deployment/cpuLimit: '10'
-      deployment/cpuRequest: '10'
-      deployment/nvidia.com/gpu: "1"
-    container:
-      env:
-        - name: CHE_DASHBOARD_URL
-          value: https://devspaces.apps.ocp4.davenet.local
-        - name: CHE_PLUGIN_REGISTRY_URL
-          value: https://devspaces.apps.ocp4.davenet.local/plugin-registry/v3
-        - name: CHE_PLUGIN_REGISTRY_INTERNAL_URL
-          value: http://plugin-registry.devspaces.svc:8080/v3
-        - name: CLUSTER_CONSOLE_URL
-          value: https://console-openshift-console.apps.ocp4.davenet.local
-        - name: CLUSTER_CONSOLE_TITLE
-          value: OpenShift console
-        - name: OPENVSX_REGISTRY_URL
-          value: ''
-      image: registry.redhat.io/devspaces/udi-rhel8@sha256:a5a67003870daf10f941b0279a065358dd1ace6d40826462b91bae9868216eff
-      sourceMapping: /projects
-    name: universal-developer-image
+  # - attributes:
+  #     controller.devfile.io/merge-contribution: true
+  #     deployment/memoryLimit: 32Gi
+  #     deployment/memoryRequest: 38Gi
+  #     deployment/cpuLimit: '10'
+  #     deployment/cpuRequest: '10'
+  #     deployment/nvidia.com/gpu: "1"
+  #   container:
+  #     env:
+  #       - name: CHE_DASHBOARD_URL
+  #         value: https://devspaces.apps.ocp4.davenet.local
+  #       - name: CHE_PLUGIN_REGISTRY_URL
+  #         value: https://devspaces.apps.ocp4.davenet.local/plugin-registry/v3
+  #       - name: CHE_PLUGIN_REGISTRY_INTERNAL_URL
+  #         value: http://plugin-registry.devspaces.svc:8080/v3
+  #       - name: CLUSTER_CONSOLE_URL
+  #         value: https://console-openshift-console.apps.ocp4.davenet.local
+  #       - name: CLUSTER_CONSOLE_TITLE
+  #         value: OpenShift console
+  #       - name: OPENVSX_REGISTRY_URL
+  #         value: ''
+  #     image: registry.redhat.io/devspaces/udi-rhel8@sha256:a5a67003870daf10f941b0279a065358dd1ace6d40826462b91bae9868216eff
+  #     sourceMapping: /projects
+  #   name: universal-developer-image
