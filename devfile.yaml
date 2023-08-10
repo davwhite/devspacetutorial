@@ -52,6 +52,7 @@ components:
       deployment/cpuRequest: "4"
       deployment/memoryLimit: 8Gi
       deployment/memoryRequest: 4Gi
+      deployment/nvidia.com/gpu: "1"
     container:
       env:
         - name: BATCH_SIZE
