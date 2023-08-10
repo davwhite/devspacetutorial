@@ -23,7 +23,6 @@ projects:
     name: flyingthings
 components:
   - attributes:
-      controller.devfile.io/merge-contribution: false
       deployment/cpuLimit: "8"
       deployment/cpuRequest: "4"
       deployment/memoryLimit: 8Gi
