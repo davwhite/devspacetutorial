@@ -24,11 +24,7 @@ projects:
 components:
   - attributes:
       controller.devfile.io/merge-contribution: true
-      deployment/memoryLimit: 32Gi
-      deployment/memoryRequest: 38Gi
-      deployment/cpuLimit: '10'
-      deployment/cpuRequest: '10'
-      deployment/nvidia.com/gpu: "1"
+      memoryLimit: 2Gi
     container:
       env:
         - name: CHE_DASHBOARD_URL
@@ -48,10 +44,7 @@ components:
     name: universal-developer-image
   - attributes:
       controller.devfile.io/merge-contribution: false
-      deployment/cpuLimit: "8"
-      deployment/cpuRequest: "4"
-      deployment/memoryLimit: 8Gi
-      deployment/memoryRequest: 4Gi
+      memoryLimit: 8Gi
       deployment/nvidia.com/gpu: "1"
     container:
       env:
