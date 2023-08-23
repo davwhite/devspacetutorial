@@ -44,7 +44,7 @@ components:
     name: universal-developer-image
   - attributes:
       controller.devfile.io/merge-contribution: false
-      memoryLimit: 8Gi
+      memoryLimit: 32Gi
       deployment/nvidia.com/gpu: "1"
     container:
       env:
