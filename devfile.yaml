@@ -3,7 +3,7 @@ metadata:
   attributes:
     metadata-name-field: generateName
     metadata-name-original-value: flyingthings
-  name: flyingthings
+  name: flyingthings-djw
 attributes:
   che-theia.eclipse.org/sidecar-policy: mergeImage
   controller.devfile.io/devworkspace-config:
@@ -22,7 +22,7 @@ projects:
   - git:
       remotes:
         origin: https://github.com/davwhite/flyingthings.git
-    name: flyingthings-djw
+    name: flyingthings
 components:
   - attributes:
       controller.devfile.io/merge-contribution: true
