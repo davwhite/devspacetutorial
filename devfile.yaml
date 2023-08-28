@@ -99,6 +99,6 @@ components:
           value: OpenShift console
         - name: OPENVSX_REGISTRY_URL
           value: ''
-      image: quay.io/dawhite20910/devspace-tkn:latest
+      image: quay.io/dawhite20910/devspace-tkn:0.0
       sourceMapping: /projects
     name: my-custom
